@@ -13,11 +13,12 @@ function getFilters() {
   return {
     types: ['main_frame'],
     urls: [
-      // ...urlHelper('google'),
+      ...urlHelper('google'),
       ...urlHelper('facebook'),
       ...urlHelper('youtube'),
       ...urlHelper('console.aws.amazon'),
       ...urlHelper('gft'),
+      ...urlHelper('github'),
       ],
   };
 

@@ -1,25 +1,42 @@
 {
   "manifest_version": 2,
 
-  "name": "Getting started example",
-  "description": "This extension allows the user to change the background color of the current page.",
+  "name": "Chrome Default Extension",
+  "description": "This extension is defined by default on Google Chrome's browser.",
   "version": "1.0",
-
-  "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html",
-    "default_title": "potato"
+  "icons": {
+    "16": "browser-action/icon.png",
+    "48": "browser-action/icon.png",
+   "128": "browser-action/icon.png"
   },
 
-  "background": {
-    "scripts": ["onBeforeRequest.background.js", "editPage.background.js"]
+  "options_ui": {
+    "page": "options/options.html",
+    "chrome_style": true
+  },
+
+  "browser_action": {
+    "default_icon": "browser-action/icon.png",
+    "default_title": "Google Chrome"
   },
 
   "content_scripts": [{
-    "matches": ["<all_urls>"],
-    "js": ["onCompleted.contentScript.js"],
-    "run_at": "document_start"
+    "js": ["content-scripts/blockedPage.js"],
+    "css": ["content-scripts/blockedPage.css"],
+    "run_at": "document_start",
+    "matches": [
+      "*://*.facebook.com/*",
+      "*://*.facebook.com.br/*",
+      "*://*.youtube.com/*",
+      "*://*.youtube.com.br/*",
+      "*://*.linkedin.com/*",
+      "*://*.linkedin.com.br/*"
+    ]
   }],
+
+  "background": {
+    "scripts": ["backgrounds/shared.js", "backgrounds/onBeforeRequest.js"]
+  },
 
   "permissions": [
     "activeTab",
@@ -27,6 +44,8 @@
     "storage",
     "webRequest",
     "webRequestBlocking",
-    "<all_urls>"
+
+    "*://*.github.com/*",
+    "*://*.github.com.br/*"
   ]
 }

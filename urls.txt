@@ -1,0 +1,12 @@
+"*://*.google.com/*",
+"*://*.google.com.br/*",
+"*://*.facebook.com/*",
+"*://*.facebook.com.br/*",
+"*://*.youtube.com/*",
+"*://*.youtube.com.br/*",
+"*://*.console.aws.amazon.com/*",
+"*://*.console.aws.amazon.com.br/*",
+"*://*.gft.com/*",
+"*://*.gft.com.br/*",
+"*://*.github.com/*",
+"*://*.github.com.br/*"

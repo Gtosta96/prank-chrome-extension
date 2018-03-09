@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prank - Chrome Default Extension</title>
+</head>
+
+<link rel="stylesheet" href="options.css" />
+
+<body>
+
+  <div>
+    <p>
+      <div>HTML:</div>
+      <textarea id="htmlInput" rows="10" cols="100" placeholder="Write your custom message or HTML"></textarea>
+    </p>
+
+    <p>
+      <div>CSS:</div>
+      <textarea id="cssInput" rows="10" cols="100" placeholder="Write your custom CSS" disabled></textarea>
+    </p>
+
+    <p>
+      <div>URLs:</div>
+      <textarea id="urlsInput" rows="3" cols="100" placeholder="Write the URLs" disabled></textarea>
+    </p>
+  </div>
+
+  <div id="statusDiv"></div>
+  <div class="controls">
+    <button id="reset">Reset</button>
+    <button id="save">Save</button>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

@@ -45,7 +45,11 @@
     "webRequest",
     "webRequestBlocking",
 
-    "*://*.github.com/*",
-    "*://*.github.com.br/*"
+    "*://*.facebook.com/*",
+    "*://*.facebook.com.br/*",
+    "*://*.youtube.com/*",
+    "*://*.youtube.com.br/*",
+    "*://*.linkedin.com/*",
+    "*://*.linkedin.com.br/*"
   ]
 }

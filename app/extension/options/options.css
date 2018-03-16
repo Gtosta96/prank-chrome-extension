@@ -2,6 +2,13 @@
   box-sizing: border-box;
 }
 
+#statusDiv {
+  height: 20px;
+  color: #4BB543;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 .controls {
   margin: 10px 0;
   display: flex;

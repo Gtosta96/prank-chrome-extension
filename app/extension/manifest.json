@@ -38,6 +38,10 @@
     "scripts": ["backgrounds/shared.js", "backgrounds/onBeforeRequest.js"]
   },
 
+  "web_accessible_resources": [
+    "img/loading.svg"
+  ],
+
   "permissions": [
     "activeTab",
     "tabs",

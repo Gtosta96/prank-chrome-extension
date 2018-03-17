@@ -1,7 +1,23 @@
-html {
-  background-color: #9999;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0
 }
 
-h1 {
-  font-size: 30px;
+html { background-color: #F7F7F7; }
+
+h1 { font-size: 30px; }
+
+.loading-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(0, -20vh);
+}
+
+.loading-img {
+  width: 200px;
+  height: 200px;
 }

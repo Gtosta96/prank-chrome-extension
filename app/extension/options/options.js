@@ -1,8 +1,10 @@
 const fallbackHTML = '<h1>THIS PAGE HAS BEEN BLOCKED BY THE ADMINISTRATOR</h1><p>Contact the support.</p>';
 const fallbackCSS = '';
+const fallbackURLS = 'https://www.facebook.com/;https://www.facebook.com.br/';
 
 const htmlInput = document.getElementById('htmlInput');
 const cssInput = document.getElementById('cssInput');
+const urlsInput = document.getElementById('urlsInput');
 const statusDiv = document.getElementById('statusDiv');
 
 // Update status to let user know options were saved.
@@ -13,17 +15,20 @@ const sendMessage = (message) => {
 
 // Saves options to chrome.storage
 const saveOptions = () => {
-  chrome.storage.sync.set({ html: htmlInput.value, css: cssInput.value }, () => {
-    sendMessage('Options saved.');
-  });
+  chrome.storage.sync.set({
+    html: htmlInput.value,
+    css: cssInput.value,
+    urls: urlsInput.value,
+  }, () => { sendMessage('Options saved.'); });
 };
 
 // Restores select box and checkbox state using the preferences
 // stored in chrome.storage.
 const restoreOptions = () => {
-  chrome.storage.sync.get({ html: fallbackHTML, css: fallbackCSS }, (items) => {
+  chrome.storage.sync.get({ html: fallbackHTML, css: fallbackCSS, urls: fallbackURLS }, (items) => {
     htmlInput.value = items.html;
     cssInput.value = items.css;
+    urlsInput.value = items.urls;
     saveOptions();
   });
 };

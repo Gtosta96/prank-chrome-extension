@@ -25,12 +25,8 @@
     "css": ["content-scripts/blockedPage.css"],
     "run_at": "document_start",
     "matches": [
-      "*://*.facebook.com/*",
-      "*://*.facebook.com.br/*",
-      "*://*.youtube.com/*",
-      "*://*.youtube.com.br/*",
-      "*://*.linkedin.com/*",
-      "*://*.linkedin.com.br/*"
+      "http://*/*",
+      "https://*/*"
     ]
   }],
 
@@ -49,11 +45,7 @@
     "webRequest",
     "webRequestBlocking",
 
-    "*://*.facebook.com/*",
-    "*://*.facebook.com.br/*",
-    "*://*.youtube.com/*",
-    "*://*.youtube.com.br/*",
-    "*://*.linkedin.com/*",
-    "*://*.linkedin.com.br/*"
+    "http://*/*",
+    "https://*/*"
   ]
 }

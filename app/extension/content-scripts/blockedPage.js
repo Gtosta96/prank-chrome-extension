@@ -1,6 +1,8 @@
 const connection = chrome.runtime.connect();
+
 const changeHTML = () => {
   const icon = chrome.extension.getURL('../img/loading.svg');
+
   // hack to edit body immediately after available
   const interval = setInterval(() => {
     const html = document.getElementsByTagName('html')[0];
@@ -11,6 +13,7 @@ const changeHTML = () => {
       '</div>'
     );
   }, 100);
+
   connection.onMessage.addListener(opts => opts && opts.interval && clearInterval(interval));
 };
 

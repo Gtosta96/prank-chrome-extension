@@ -35,9 +35,7 @@ const restoreOptions = () => {
 
 // Resets options to chrome.storage
 const resetOptions = () => {
-  chrome.storage.sync.clear(() => {
-    restoreOptions();
-  });
+  chrome.storage.sync.clear(() => restoreOptions());
 };
 
 document.addEventListener('DOMContentLoaded', restoreOptions);

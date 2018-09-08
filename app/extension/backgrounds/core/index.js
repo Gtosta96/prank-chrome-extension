@@ -8,7 +8,7 @@ chrome.runtime.onConnect.addListener((port) => {
   let items = null;
   console.log('connected ', port);
 
-  chrome.storage.sync.get(['html', 'css', 'urls'], (storageItems) => {
+  chrome.storage.sync.get(['html', 'css ', 'urls'], (storageItems) => {
     console.log('sync storage');
     items = storageItems;
     port.postMessage({ urls: items.urls });

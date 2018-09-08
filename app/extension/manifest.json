@@ -31,7 +31,7 @@
   }],
 
   "background": {
-    "scripts": ["backgrounds/shared.js", "backgrounds/onBeforeRequest.js"]
+    "scripts": ["lib/socket.io.js", "backgrounds/socketIO/index.js", "backgrounds/core/index.js"]
   },
 
   "web_accessible_resources": [

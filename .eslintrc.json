@@ -2,12 +2,14 @@
   "extends": "airbnb-base",
   "rules": {
     "linebreak-style": 0,
+    "no-use-before-define": "off",
     "import/no-extraneous-dependencies": ["error", {
       "devDependencies": ["scripts/**"]
     }]
   },
   "globals": {
     "chrome": true,
-    "document": true
+    "document": true,
+    "window": true
   }
 }

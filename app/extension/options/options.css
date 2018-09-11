@@ -15,3 +15,11 @@
 .controls > button:last-child {
   margin-left: auto;
 }
+
+.info {
+  display: flex;
+}
+
+.info > div:last-child {
+  margin-left: auto;
+}

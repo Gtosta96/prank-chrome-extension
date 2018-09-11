@@ -31,7 +31,13 @@
   }],
 
   "background": {
-    "scripts": ["lib/socket.io.js", "backgrounds/socketIO/index.js", "backgrounds/core/index.js"]
+    "scripts": [
+      "lib/socket.io.js",
+      "backgrounds/api/http/http.js",
+      "backgrounds/api/socket-io/socketIO.js",
+      "backgrounds/core/onInstalled.js",
+      "backgrounds/core/onConnect.js"
+    ]
   },
 
   "web_accessible_resources": [

@@ -18,6 +18,8 @@ const changeHTML = () => {
 };
 
 connection.onMessage.addListener((opts) => {
+  console.log('::blockedPage:: - onMessage');
+
   if (opts && opts.urls && opts.urls.includes(document.location.hostname)) {
     changeHTML();
     connection.postMessage();

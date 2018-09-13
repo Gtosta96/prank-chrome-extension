@@ -1,10 +1,13 @@
+/**
+ * OFFLINE BEHAVIOR
+ */
 const fallbackHTML = '<h1>THIS PAGE HAS BEEN BLOCKED BY THE ADMINISTRATOR</h1><p>Contact the support.</p>';
 const fallbackCSS = '';
 const fallbackURLS = 'https://www.facebook.com/;https://www.facebook.com.br/';
 
 const statusDiv = document.getElementById('statusDiv');
-
 const databaseId = document.getElementById('databaseId');
+
 const htmlInput = document.getElementById('htmlInput');
 const cssInput = document.getElementById('cssInput');
 const urlsInput = document.getElementById('urlsInput');
@@ -26,11 +29,12 @@ const saveOptions = () => {
 
 // Restores select box and checkbox state using the preferences
 // stored in chrome.storage.
-const restoreOptions = () => {
+const getOptionsValuesFromStorage = () => {
   const values = { id: '', html: fallbackHTML, css: fallbackCSS, urls: fallbackURLS };
 
   chrome.storage.sync.get(values, (items) => {
     databaseId.innerText = items.id;
+
     htmlInput.value = items.html;
     cssInput.value = items.css;
     urlsInput.value = items.urls;
@@ -39,11 +43,5 @@ const restoreOptions = () => {
   });
 };
 
-// Resets options to chrome.storage
-// const resetOptions = () => {
-//   chrome.storage.sync.clear(() => restoreOptions());
-// };
-
-document.addEventListener('DOMContentLoaded', restoreOptions);
+document.addEventListener('DOMContentLoaded', getOptionsValuesFromStorage);
 document.getElementById('save').addEventListener('click', saveOptions);
-// document.getElementById('reset').addEventListener('click', resetOptions);

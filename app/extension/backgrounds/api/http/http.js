@@ -1,7 +1,7 @@
 function create() {
   console.log('::HTTP:: - create');
 
-  return window.fetch('http://localhost:3000/pranks/create', { method: 'POST' })
+  return window.fetch('http://localhost:3000/pranks', { method: 'POST' })
     .then(response => response.json());
 }
 

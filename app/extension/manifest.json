@@ -34,9 +34,10 @@
     "scripts": [
       "lib/socket.io.js",
       "backgrounds/api/http/http.js",
-      "backgrounds/api/socket-io/socketIO.js",
+      "backgrounds/api/ws/ws.js",
       "backgrounds/core/onInstalled.js",
-      "backgrounds/core/onConnect.js"
+      "backgrounds/core/onConnect.js",
+      "backgrounds/core/ws.js"
     ]
   },
 

@@ -1,5 +1,4 @@
 let socket;
-let id;
 
 // id could be undefined - race condition on installing the extension for the first time
 const interval = setInterval(() => startSocketIO(), 1000);
@@ -7,7 +6,6 @@ const interval = setInterval(() => startSocketIO(), 1000);
 function startSocketIO() {
   chrome.storage.sync.get('id', async (storage) => {
     if (!storage.id) return;
-    id = storage.id; // eslint-disable-line prefer-destructuring
 
     clearInterval(interval);
 
@@ -25,7 +23,7 @@ function startSocketIO() {
 
 function emit(event, data) {
   console.log('::socketIO:: - emitting ->', event);
-  socket.emit(event, id, data);
+  socket.emit(event, data);
 }
 
 // TODO: make it better

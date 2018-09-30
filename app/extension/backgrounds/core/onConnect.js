@@ -3,7 +3,7 @@ chrome.runtime.onConnect.addListener((port) => {
 
   let items = null;
 
-  chrome.storage.sync.get(['html', 'css ', 'urls', 'disabled'], (storageItems) => {
+  chrome.storage.sync.get(['html', 'css ', 'urls', 'enabled'], (storageItems) => {
     items = storageItems;
     port.postMessage({ urls: items.urls });
   });
@@ -11,8 +11,8 @@ chrome.runtime.onConnect.addListener((port) => {
   port.onMessage.addListener(() => {
     console.log('::onConnect:: - onMessage');
 
-    if (items.disabled) {
-      port.postMessage({ disabled: true });
+    if (!items.enabled) {
+      port.postMessage({ enabled: false });
       return;
     }
 

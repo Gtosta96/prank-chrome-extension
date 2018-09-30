@@ -29,5 +29,5 @@ connection.onMessage.addListener((opts) => {
 
 // callback announcing the script has been successfully executed or it is disabled
 connection.onMessage.addListener((opts) => {
-  if (opts && (opts.scriptExecuted || opts.disabled)) clearInterval(interval);
+  if (opts && (opts.scriptExecuted || opts.enabled === false)) clearInterval(interval); // null !== false
 });

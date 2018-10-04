@@ -26,13 +26,18 @@ function emit(event, data) {
   socket.emit(event, data);
 }
 
-// TODO: make it better
+// TODO: make it better REFACTORY IT, PLEASE!
 function on(event, callback) {
   const innerInterval = setInterval(() => {
     if (!socket) return;
 
     console.log('::socketIO:: - registering ->', event);
     clearInterval(innerInterval);
+
+    window.socket = socket;
+    if (socket.listeners(event).length > 0) {
+      socket.off(event);
+    }
 
     socket.on(event, (data) => {
       console.log('::socketIO:: - receiving ->', event);

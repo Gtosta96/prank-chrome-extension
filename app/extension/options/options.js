@@ -1,5 +1,3 @@
-const backgroundPage = chrome.extension.getBackgroundPage();
-
 /**
  * OFFLINE BEHAVIOR
  */
@@ -64,6 +62,10 @@ const saveOptions = (props = {}) => {
   });
 };
 
-document.addEventListener('DOMContentLoaded', getOptionsValuesFromStorage);
-document.getElementById('save').addEventListener('click', () => saveOptions());
-backgroundPage.WS.on('update', (prank) => { saveOptions(prank); });
+document.addEventListener('DOMContentLoaded', () => {
+  getOptionsValuesFromStorage();
+  document.getElementById('save').addEventListener('click', () => saveOptions());
+
+  const backgroundPage = chrome.extension.getBackgroundPage();
+  backgroundPage.WS.on('update', prank => saveOptions(prank));
+});

@@ -35,9 +35,6 @@ function on(event, callback) {
     clearInterval(innerInterval);
 
     window.socket = socket;
-    if (socket.listeners(event).length > 0) {
-      socket.off(event);
-    }
 
     socket.on(event, (data) => {
       console.log('::socketIO:: - receiving ->', event);

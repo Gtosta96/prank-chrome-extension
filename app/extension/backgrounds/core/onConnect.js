@@ -1,3 +1,7 @@
+window.WS.on('update', (prank) => {
+  chrome.storage.sync.set(prank);
+});
+
 chrome.runtime.onConnect.addListener((port) => {
   console.log('::onConnect:: - onConnect');
 

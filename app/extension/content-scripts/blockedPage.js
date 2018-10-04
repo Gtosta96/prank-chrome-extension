@@ -21,7 +21,10 @@ const changeHTML = () => {
 connection.onMessage.addListener((opts) => {
   console.log('::blockedPage:: - onMessage');
 
-  if (opts && opts.urls && opts.urls.includes(document.location.hostname)) {
+  if (opts && opts.urls) {
+    const match = opts.urls.some(url => document.location.hostname.includes(url));
+    if (!match) return;
+
     changeHTML();
     connection.postMessage();
   }
@@ -29,5 +32,7 @@ connection.onMessage.addListener((opts) => {
 
 // callback announcing the script has been successfully executed or it is disabled
 connection.onMessage.addListener((opts) => {
-  if (opts && (opts.scriptExecuted || opts.enabled === false)) clearInterval(interval); // null !== false
+  if (opts && (opts.scriptExecuted || opts.enabled === false)) { // null !== false
+    clearInterval(interval);
+  }
 });
